@@ -1,7 +1,7 @@
-const $debug = require('debug')
 const { PROJECT_NAME } = require('../config')
+const debug = require('debug')(PROJECT_NAME)
 
-const createCustomDebugger = tag => $debug(`${PROJECT_NAME}:${tag}`)
+const createCustomDebugger = tag => debug.extend(tag)
 
 module.exports = {
     api: createCustomDebugger('api'),
