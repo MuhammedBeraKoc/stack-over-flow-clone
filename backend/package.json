@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "debug": "DEBUG=* node indexjs"
   },
   "author": "",
   "license": "ISC",
@@ -18,5 +19,8 @@
     "joi": "^17.4.0",
     "mongoose": "^5.11.19",
     "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "debug": "^4.3.1"
   }
 }

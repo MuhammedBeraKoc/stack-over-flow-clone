@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 const { MONGO_URL } = require('../config')
 const User = require('../models/user')
+const debug = require('../utils/debug')
+const { normaliseError } = require('../utils/error')
 
 exports.connection = mongoose.connection
 exports.connect = async () => {
@@ -8,8 +10,8 @@ exports.connect = async () => {
         useUnifiedTopology: true,
         useNewUrlParser: true
     }, () => {
-        if (err) console.log(err)
-        console.log('Connected to the database 🔮')
+        if (err) debug.error(normaliseError(err).toString())
+        debug.api('Connected to the database 🔮')
     })
 }
 module.exports = {
@@ -20,6 +22,7 @@ module.exports = {
             password
         })
         await user.save()
+        debug.api(`User with id${user.id} saved to the database.`)
         return save
     }
 }

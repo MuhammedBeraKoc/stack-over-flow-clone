@@ -1,5 +1,6 @@
 const {
     PORT,
+    PROJECT_NAME,
     API_VERSION,
     NODE_ENV,
     MONGO_URL,
@@ -10,6 +11,7 @@ const {
 
 module.exports = {
     PORT,
+    PROJECT_NAME,
     API_VERSION,
     NODE_ENV,
     MONGO_URL,
