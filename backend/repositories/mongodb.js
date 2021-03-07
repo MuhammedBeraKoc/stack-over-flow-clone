@@ -11,7 +11,7 @@ exports.connect = async () => {
         useNewUrlParser: true
     }, err => {
         if (err) throw err
-        debug.api('Connected to the database 🔮')
+        debug.db('Connected to the database 🔮')
     })
 }
 exports.saveUser = async (username, email, password) => {
@@ -21,6 +21,6 @@ exports.saveUser = async (username, email, password) => {
         password
     })
     await user.save()
-    debug.api(`User with id${user.id} saved to the database.`)
+    debug.db(`User with id${user.id} saved to the database.`)
     return save
 }

@@ -11,7 +11,7 @@ module.exports = {
             email,
             password
         })
-        debug.api(`User is validated.`)
+        debug.info(`User is validated.`)
         const user = MongoDBRepository.saveUser(username, email, password)
         debug.api(`User@${user.id} has signed up successfully.`)
         const sessionUser = sessionizeUser(user)

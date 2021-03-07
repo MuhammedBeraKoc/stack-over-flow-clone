@@ -12,10 +12,10 @@ module.exports = {
             email,
             password
         })
-        debug.api('User is validated.')
+        debug.info('User is validated.')
         const user = User.findOne({ email })
         if (user && user.comparePasswords(password)) {
-            debug.api(`User@${user.api} has logged in successfully.`)
+            debug.info(`User@${user.api} has logged in successfully.`)
             const sessionUser = sessionizeUser(user)
             req.session.user = sessionUser
             debug.api('User session is added to the request object.')

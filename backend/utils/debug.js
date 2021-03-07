@@ -5,5 +5,7 @@ const createCustomDebugger = tag => debug.extend(tag)
 
 module.exports = {
     api: createCustomDebugger('api'),
-    error: createCustomDebugger('error')
+    error: createCustomDebugger('error'),
+    db: createCustomDebugger('db'),
+    info: createCustomDebugger('info')
 }
