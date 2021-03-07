@@ -9,20 +9,18 @@ exports.connect = async () => {
     await mongoose.connect(MONGO_URL, {
         useUnifiedTopology: true,
         useNewUrlParser: true
-    }, () => {
-        if (err) debug.error(normaliseError(err).toString())
+    }, err => {
+        if (err) throw err
         debug.api('Connected to the database 🔮')
     })
 }
-module.exports = {
-    async saveUser(username, email, password) {
-        const user = new User({
-            username,
-            email,
-            password
-        })
-        await user.save()
-        debug.api(`User with id${user.id} saved to the database.`)
-        return save
-    }
+exports.saveUser = async (username, email, password) => {
+    const user = new User({
+        username,
+        email,
+        password
+    })
+    await user.save()
+    debug.api(`User with id${user.id} saved to the database.`)
+    return save
 }

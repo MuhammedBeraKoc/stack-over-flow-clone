@@ -1,3 +1,7 @@
+const { config } = require('dotenv')
+
+config()
+
 const {
     PORT,
     PROJECT_NAME,

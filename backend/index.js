@@ -20,7 +20,7 @@ const applyMiddleware = app => {
     const MongoStore = connectStore(session)
     app.use(express.json())
     app.use(helmet())
-    app.use(morgan('short'))
+    app.use(morgan('tiny'))
     app.use(session({
         name: SESS_NAME,
         secret: SESS_SECRET,
@@ -48,8 +48,9 @@ const listen = app => {
 
 const initApp = async () => {
     try {
+        const app = express()
         await connect()
-        applyMiddleware(app)
+        //applyMiddleware(app)
         listen(app)
     } catch (err) {
         console.log(err)
