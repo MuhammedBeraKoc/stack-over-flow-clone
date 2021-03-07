@@ -5,4 +5,7 @@ then
 elif [ "$1" = "feature" ]
 then
     git acm -m "💡FEATURE: $2"
+elif [ "$1" = "fix" ]
+then
+    git acm -m "🪑HOTFIX: $2"
 fi

@@ -12,7 +12,7 @@ exports.normaliseError = error => ({
 })
 
 exports.APIError = class extends Error {
-    contructor(message, name="APIError") {
+    constructor(message, name="APIError") {
         super(message)
         this.name = name
     }
