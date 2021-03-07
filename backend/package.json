@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "debug": "DEBUG=stack:* node index.js"
+    "debug": "DEBUG=stack:* node index.js",
+    "start": "npm run debug"
   },
   "author": "",
   "license": "ISC",
