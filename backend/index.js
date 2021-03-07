@@ -13,6 +13,7 @@ const {
 } = require('./config')
 const { connect, connection } = require('./repositories/mongodb')
 const APIController = require('./controllers/api')
+const debug = require('./utils/debug')
 
 const defaultPort = 12345
 
@@ -38,11 +39,12 @@ const applyMiddleware = app => {
         }
     }))
     app.use(`/api/${API_VERSION}`, APIController)
+    debug.api('Middleware is applied completely 🔢')
 }
 
 const listen = app => {
     const listener = app.listen(PORT || defaultPort, () => {
-        console.log(`Listening on port ${listener.address().port}`)
+        debug.api(`Listening on port ${listener.address().port} 🧳`)
     })
 }
 
@@ -50,10 +52,10 @@ const initApp = async () => {
     try {
         const app = express()
         await connect()
-        //applyMiddleware(app)
+        applyMiddleware(app)
         listen(app)
     } catch (err) {
-        console.log(err)
+        debug.error(err)
     }
 }
 
