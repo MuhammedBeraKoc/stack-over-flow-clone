@@ -4,7 +4,7 @@ const { parseError } = require('../utils/core')
 
 const UserController = Router()
 
-UserController.post('/', (req, res) => {
+UserController.post('/', async (req, res) => {
     try {
         const sessionUser = await UserService.save(req)
         res.send(sessionUser)
