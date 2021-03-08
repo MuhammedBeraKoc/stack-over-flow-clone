@@ -2,8 +2,9 @@ const MongoDBRepository = require("../repositories/mongodb")
 const { sessionizeUser } = require("../utils/core")
 const { signUp } = require("../validations/user")
 const debug = require('../utils/debug')
+const { injectContext } = require("../utils/context")
 
-module.exports = {
+module.exports = User => injectContext(User)({
     async save(req) {
         const { username, password, email } = req.body
         await signUp.validateAsync({
@@ -19,4 +20,4 @@ module.exports = {
         debug.api('User session is added to the request object.')
         return sessionUser
     }
-}
+})

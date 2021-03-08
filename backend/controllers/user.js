@@ -1,5 +1,5 @@
 const { Router } = require('express')
-const UserService = require('../services/user')
+const UserService = require('../services/service-manager').UserService
 const { parseError } = require('../utils/core')
 
 const UserController = Router()

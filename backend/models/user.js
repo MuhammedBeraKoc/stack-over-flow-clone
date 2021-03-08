@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose')
 const { hashSync, compareSync } = require('bcryptjs')
-const { encodeBase64 } = require('../utils/core')
+const { encodeBase64 } = require('../utils/image')
 const { passwordRegex, passwordErrorMessage } = require('../validations/user')
 const iconURL = './models/user.png'
 

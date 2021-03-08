@@ -1,5 +1,5 @@
 const { Router } = require('express')
-const SessionService = require('../services/session')
+const SessionService = require('../services/service-manager').SessionService
 const { parseError } = require('../utils/core')
 
 const SessionController = Router()

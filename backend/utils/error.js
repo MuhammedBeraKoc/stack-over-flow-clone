@@ -17,3 +17,13 @@ exports.APIError = class extends Error {
         this.name = name
     }
 }
+
+exports.parseError = (error, options={
+    onlyMessage: true
+}) => {
+    return error.isJoi 
+        ? (options.onlyMessage && error.details[0].message) || error.details[0]
+        : JSON.stringify(error, options.onlyMessage 
+            ? ['message']
+            : Object.getOwnPropertyNames(error))
+}
