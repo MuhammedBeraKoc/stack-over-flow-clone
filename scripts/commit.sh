@@ -8,4 +8,7 @@ then
 elif [ "$1" = "fix" ]
 then
     git acm -m "🪑HOTFIX: $2"
+elif [ "$1" = "lib" ]
+then
+    git acm -m "📜LIBRARY: $2"
 fi
