@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "debug": "DEBUG=stack:* node index.js",
-    "start": "npm run debug"
+    "start": "npm run debug",
+    "test": "jest --verbose"
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +25,7 @@
     "@types/jest": "^26.0.20",
     "debug": "^4.3.1",
     "jest": "^26.6.3",
+    "sinon": "^9.2.4",
     "supertest": "^6.1.3"
   }
 }
