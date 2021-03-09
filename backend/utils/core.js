@@ -1,3 +1,9 @@
-exports.is = Object.is
-exports.type = v => typeof v
-exports.isFunction = v => is(type(v), 'function')
+const is = Object.is
+const type = v => typeof v
+const isFunction = v => is(type(v), 'function')
+
+module.exports = {
+    is,
+    type,
+    isFunction
+}
