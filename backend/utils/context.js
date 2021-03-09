@@ -1,10 +1,6 @@
 const { isFunction } = require("./core")
 
-exports.injectContext = Context => module => {
-    for (const key in module) {
-        const value = module[key]
-        if (isFunction(value)) {
-            module[key] = value.bind(Context)
-        }
-    }
-}
+exports.injectContext = context => module => Object.keys(module).reduce((enhancedModule, key) => ({
+    ...enhancedModule,
+    [key]: (isFunction(module[key]) && module[key].bind(context)) || module[key]
+}), {})

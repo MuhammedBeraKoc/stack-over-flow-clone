@@ -2,7 +2,7 @@ const { connection, connect } = require("../../repositories/mongodb")
 const { MONGO_TEST_URL } = require("../../config")
 const User = require('../../models/user')
 
-describe('Test Suite for User Model', () => {
+describe('User Model Test Suite', () => {
     beforeAll(async () => {
         await connect(MONGO_TEST_URL)
         await User.deleteMany({})
