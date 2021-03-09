@@ -11,7 +11,7 @@ const {
     PORT,
     API_VERSION
 } = require('./config')
-const { connect, connection } = require('./repositories/mongodb')
+const {connection } = require('./repositories/mongodb')
 const APIController = require('./controllers/api')
 const debug = require('./utils/debug')
 
@@ -39,7 +39,7 @@ const applyMiddleware = app => {
         }
     }))
     app.use(`/api/${API_VERSION}`, APIController)
-    debug.api('Middleware is applied completely 🔢')
+    debug.api('Middleware is applied 🔢')
 }
 
 const listen = app => {
@@ -51,7 +51,6 @@ const listen = app => {
 const initApp = async () => {
     try {
         const app = express()
-        await connect()
         applyMiddleware(app)
         listen(app)
         return app
