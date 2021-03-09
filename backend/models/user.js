@@ -10,7 +10,7 @@ const userSchema = new Schema({
         required: true,
         validate: {
             validator: username => User.doesNotExist(username),
-            message: props => `${props.value} is already recorded in database`
+            message: props => `${props.value} exists in database`
         }
     },
     password: {
@@ -51,8 +51,8 @@ userSchema.pre('save', function() {
     }
 })
 
-userSchema.static('doesNotExist', function(field) {
-    return this.where({ field }).countDocuments() === 0
+userSchema.static('doesNotExist', async function(field) {
+    return await this.where({ field }).countDocuments() === 0
 })
 
 userSchema.method('comparePasswords', function(password) {

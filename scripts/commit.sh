@@ -11,4 +11,7 @@ then
 elif [ "$1" = "lib" ]
 then
     git acm -m "📜LIBRARY: $2"
+elif [ "$1" = "test" ]
+then
+	git acm -m "⚗️ TEST: $2"
 fi

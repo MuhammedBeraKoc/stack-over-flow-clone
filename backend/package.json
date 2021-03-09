@@ -6,7 +6,11 @@
   "scripts": {
     "debug": "DEBUG=stack:* node index.js",
     "start": "npm run debug",
-    "test": "jest --verbose"
+    "test:integration": "jest --verbose --testPathPattern=models/",
+    "pull-remote-db": "sudo docker pull mongo",
+    "run-remote-db": "sudo docker run --rm -d -p 27017:27017 mongo",
+    "open-remote-db": "sudo docker exec -it eloquent_archimedes bash",
+    "log-remote-db": "sudo docker logs eloquent_archimedes > mongodb.docker.log"
   },
   "author": "",
   "license": "ISC",

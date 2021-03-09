@@ -2,7 +2,6 @@ const mongoose = require('mongoose')
 const { MONGO_URL } = require('../config')
 const User = require('../models/user')
 const debug = require('../utils/debug')
-const { normaliseError } = require('../utils/error')
 
 exports.connection = mongoose.connection
 exports.connect = async (mongoURL) => {
