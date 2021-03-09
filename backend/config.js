@@ -8,6 +8,7 @@ const {
     API_VERSION,
     NODE_ENV,
     MONGO_URL,
+    MONGO_TEST_URL,
     SESS_NAME,
     SESS_SECRET,
     SESS_LIFETIME
@@ -19,6 +20,7 @@ module.exports = {
     API_VERSION,
     NODE_ENV,
     MONGO_URL,
+    MONGO_TEST_URL,
     SESS_NAME,
     SESS_SECRET,
     SESS_LIFETIME

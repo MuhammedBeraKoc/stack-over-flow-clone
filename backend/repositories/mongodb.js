@@ -5,8 +5,8 @@ const debug = require('../utils/debug')
 const { normaliseError } = require('../utils/error')
 
 exports.connection = mongoose.connection
-exports.connect = async () => {
-    await mongoose.connect(MONGO_URL, {
+exports.connect = async (mongoURL) => {
+    await mongoose.connect(mongoURL || MONGO_URL, {
         useUnifiedTopology: true,
         useNewUrlParser: true
     }, err => {
