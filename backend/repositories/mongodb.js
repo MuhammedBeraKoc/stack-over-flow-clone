@@ -13,13 +13,15 @@ exports.connect = async (mongoURL) => {
         debug.api('Connected to the database 🔮')
     })
 }
-exports.saveUser = async (username, email, password) => {
-    const user = new User({
-        username,
-        email,
-        password
-    })
-    await user.save()
-    debug.api(`User with id${user.id} saved to the database.`)
-    return save
+exports.users = {
+    async save(username, email, password) {
+        const user = new User({
+            username,
+            email,
+            password
+        })
+        await user.save()
+        debug.api(`User with id${user.id} saved to the database.`)
+        return save
+    }
 }

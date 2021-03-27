@@ -1,8 +1,8 @@
-const MongoDBRepository = require("../repositories/mongodb")
-const { sessionizeUser } = require("../utils/core")
+const { sessionizeUser } = require("../utils/session")
 const { signUp } = require("../validations/user")
 const debug = require('../utils/debug')
 const { injectContext } = require("../utils/context")
+const Mongo = require('../repositories/mongodb')
 
 module.exports = User => injectContext(User)({
     async save(req) {
@@ -13,7 +13,7 @@ module.exports = User => injectContext(User)({
             password
         })
         debug.api(`User is validated.`)
-        const user = MongoDBRepository.saveUser(username, email, password)
+        const user = await Mongo.users.save(username, email, password)
         debug.api(`User@${user.id} has signed up successfully.`)
         const sessionUser = sessionizeUser(user)
         req.session.user = sessionUser
